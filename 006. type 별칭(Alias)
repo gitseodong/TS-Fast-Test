@@ -1,0 +1,59 @@
+// 타입 별칭(Alias)
+
+type TypeA = string; // string이라는 type에 TypeA라는 별명을 붙임.
+type TypeB = string | number | boolean; // 여러 개의 type에 별명을 붙일 수 있다.
+type User =
+  | {
+      name: string;
+      age: number;
+      isValid: boolean;
+    }
+  | [string, number, boolean]; // 객체 또는 tuple
+
+const userA: User = {
+  name: "Neo",
+  age: 85,
+  isValid: true,
+};
+
+const userB: User = ["Evan", 36, false];
+
+function someFunc(param: TypeB): TypeA {
+  switch (typeof param) {
+    case "string":
+      return param.toUpperCase();
+    case "number":
+      return param.toFixed(2);
+    default:
+      return param.toString(); // return값은 TypeA인 string만 가능하다.
+  }
+}
+console.log(someFunc("abc")); // ABC
+console.log(someFunc(3.1415)); // 3.14
+console.log(someFunc(false)); // false
+
+// type과 interface
+// interface를 조금 더 추천하나 둘 다 충분히 가능하다.
+
+type TypeUser = {
+  // type은 할당연산자(=) 있음.
+  name: string;
+  age: number;
+  isValid: boolean;
+};
+interface InterfaceUser {
+  name: string;
+  age: number;
+  isValid: boolean;
+}
+
+const jsc1: TypeUser = {
+  name: "jsc",
+  age: 41,
+  isValid: true,
+};
+const jsc2: InterfaceUser = {
+  name: "jsc",
+  age: 41,
+  isValid: true,
+};

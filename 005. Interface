@@ -1,0 +1,23 @@
+// 인터페이스 (Interface)
+
+// 선택적 속성 - ?
+// 읽기전용 속성 - readonly
+
+interface User {
+  name: string;
+  readonly age: number;
+  isValid?: boolean; // 선택적 속성, isValid가 있어도 되고 없어도 된다.
+}
+
+const jsc: User = {
+  name: "조성창",
+  age: 41,
+  isValid: true,
+};
+jsc.isValid = false; // 새로운 값 할당 가능.
+jsc.age = 22; // readonly 속성에는 값을 할당할 수 없다.
+
+const neo: User = {
+  name: "Neo",
+  age: 102,
+};

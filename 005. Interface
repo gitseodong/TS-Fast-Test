@@ -76,3 +76,28 @@ const jsc: User = {
 jsc["isValid"] = true;
 jsc["email"] = ["seodong56@nate.com", "belief56@gmail.com"];
 console.log(jsc);
+
+interface Payload {
+  [key: string]: unknown;
+}
+
+function logValues(payload: Payload) {
+  for (const key in payload) {
+    console.log(payload[key]);
+  }
+}
+
+interface User {
+  [key: string]: unknown; // 이 코드가 없으면 payload에 인수로 넣을 수 없다.
+  name: string;
+  age: number;
+  isValid: boolean;
+}
+
+const jsc: User = {
+  name: "Seongchang",
+  age: 41,
+  isValid: true,
+};
+
+logValues(jsc);

@@ -1,0 +1,20 @@
+// 타입 추론(inference)
+// '추론' - 어떠한 판단을 근거로 삼아 다른 판단을 이끌어 냄.
+// type을 명시하지 않아도 type이 정해지는 경우
+
+// 1) 초기화된 변수
+// 2) 기본값이 설정된 매개 변수
+// 3) 반환 값이 있는 함수
+
+// 1) 초기화된 변수 `num`
+let num = 12;
+num = "Hello type!"; // num에 이미 숫자가 할당되어 있으므로 number type으로 추론함.
+
+
+// 2, 3) 기본값이 지정된 매개 변수 `b` + 반환 값이 확실한 함수 `add`
+function add(a: number, b = 2) {
+  return a + b;
+} // a: number, b: 2가 할당되어 있으므로 number, return도 number+number이므로 number
+
+
+

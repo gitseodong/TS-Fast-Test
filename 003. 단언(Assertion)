@@ -1,0 +1,38 @@
+// 타입 단언(Assertion)
+// 할당 단언(Assertion)
+
+// 타입 단언
+// '단언' - 주저하지 아니하고 딱 잘라 말함.
+
+// 단언 키워드 - as
+// Non-null 단언 연산자 - ! , null이나 undefined가 아님을 단언해주는 연산자
+
+// 1) 잘못된 코드
+const el = document.querySelector(".title");
+el!.textContent = "Hello world?!";
+
+// 1) 코드 수정
+const el2 = document.querySelector(".title");
+if (el) el.textContent = "Hello world?!";
+
+// 2) 잘못된 코드
+function getNumber(x: number | null | undefined) {
+  return Number(x!.toFixed(2));
+}
+getNumber(3.1415926535);
+getNumber(null);
+
+// 2) 코드 수정
+function getNumber2(x: number | null | undefined) {
+  if (x) return Number(x.toFixed(2));
+}
+
+// 3) as를 이용한 단언
+function getValue(x: string | number, isNumber: boolean) {
+  if (isNumber) {
+    return Number((x as number).toFixed(2));
+  }
+  return (x as string).toUpperCase();
+}
+getValue("hello world", false);
+getValue(3.1415926535, true);

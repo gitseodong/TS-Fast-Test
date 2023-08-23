@@ -52,3 +52,27 @@ const jsc: User = {
   },
 };
 jsc.getName("Hello~");
+
+
+// 인덱스 가능 타입 - 인덱스 시그니처(Index Signrature)
+
+// 배열
+interface Fruits {
+  [item: number]: string;
+}
+const fruits: Fruits = ["Apple", "Banana", "Cherry"];
+console.log(fruits[1]); // Banana
+
+// 객체
+interface User {
+  [key: string]: unknown; // key대신 아무 이름이나 입력 가능.
+  name: string;
+  age: number;
+}
+const jsc: User = {
+  name: "Seongchang",
+  age: 41,
+};
+jsc["isValid"] = true;
+jsc["email"] = ["seodong56@nate.com", "belief56@gmail.com"];
+console.log(jsc);

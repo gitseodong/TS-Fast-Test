@@ -36,3 +36,8 @@ function getValue(x: string | number, isNumber: boolean) {
 }
 getValue("hello world", false);
 getValue(3.1415926535, true);
+
+// 할당 단언 : 할당하지 않은 변수에 할당이 되었다고 단언해줌.
+let num!: number;
+console.log(num);
+num = 123;

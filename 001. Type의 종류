@@ -89,3 +89,71 @@ const hello2 = function (): void {
   console.log("Hello world~");
 };
 h = hello2();
+
+// Any - 아무거나 할당되도 되는 type, typescript 사용의 의미가 사라짐. 되도록 사용하지 않는 것이 좋다.
+let hello_any: any = "Hello world";
+hello_any = 123;
+hello_any = false;
+hello_any = null;
+hello_any = {};
+hello_any = [];
+hello_any = function () {};
+
+// Unknown, 많이 사용됨. 데이터의 타입을 정확히 알 수 없는 경우 unknown을 사용하자.
+const a: any = 123;
+const u: unknown = 123;
+
+const any: any = a; // 할당가능
+const boo: boolean = a; //할당가능
+const num: number = a; //할당가능
+const arr: string[] = a; //할당가능
+const obj: { x: string; y: number } = a; //할당가능
+
+const any2: any = u; // 할당가능
+const boo2: boolean = u; //할당'불'가능
+const num2: number = u; //할당'불'가능
+const arr2: string[] = u; //할당'불'가능
+const obj2: { x: string; y: number } = u; //할당'불'가능
+
+//Tuple
+const tuple: [string, number, boolean] = ["a", 1, false]; // 배열 데이터의 타입, 순서 및 데이터 개수까지 지정함.
+const users: [number, string, boolean][] = [
+  [1, "Neo", true],
+  [2, "Evan", false],
+  [3, "Lewis", true],
+];
+
+// Void, 함수에 return 키워드가 사용되지 않음을 나타냄.
+function hello(msg: string): void {
+  console.log(`Hello ${msg}`);
+}
+const hi: void = hello("world");
+console.log(hello("d")); // undefined
+
+// Never : 절대 발생하지 않을 값
+// 배열 앞에 type을 지정하지 않으면 never type이 되고, 그 어떤 요소도 집어넣을 수 없다.
+// 직접 사용할 일은 없음.
+const nev: [] = [];
+nev.push(3); // 불가능
+
+// Union
+// 2개 이상의 type을 지정함.
+let union: string | number;
+union = "Hello type!"; // 가능
+union = 123; // 가능
+union = false; // 불가능
+
+// Intersection
+interface User {
+  name: string;
+  age: number;
+}
+interface Validation {
+  isValid: Boolean;
+}
+
+const heropy: User & Validation = {
+  name: "Neo",
+  age: 30,
+  isValid: true,
+};

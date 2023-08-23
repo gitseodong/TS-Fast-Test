@@ -21,3 +21,34 @@ const neo: User = {
   name: "Neo",
   age: 102,
 };
+
+// 함수 타입 - 호출 시그니처(Call Signature)
+// 인덱스 가능 타입 - 인덱스 시그니처(Index Signrature)
+// 확장(상속)
+
+// 함수 타입
+// interface GetName {
+//   (param: string): string // param은 아무 이름이나 작성해도 됨.
+// }
+
+// interface User {
+//   name: string;
+//   age: number;
+//   getName: GetName;
+// }
+
+interface User {
+  name: string
+  age: number
+  getName: (param: string) => string // param은 아무 이름이나 작성해도 됨.
+}
+
+const jsc: User = {
+  name: "Seongchang",
+  age: 41,
+  getName(message: string) { // 매개변수의 이름은 interface와 달라도 됨. type과 개수만 맞으면 된다.
+    console.log(message);
+    return this.name;
+  },
+};
+jsc.getName("Hello~");

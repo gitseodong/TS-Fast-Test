@@ -1,0 +1,16 @@
+// 타입 종류
+
+// 문자
+// 숫자
+// 불린
+// Null / Undefined
+// 배열
+// 객체
+// 함수
+// Any
+// Unknown
+// Tuple
+// Void
+// Never
+// Union
+// Intersection

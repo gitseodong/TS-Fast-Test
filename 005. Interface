@@ -101,3 +101,43 @@ const jsc: User = {
 };
 
 logValues(jsc);
+
+
+// 확장(상속)
+
+interface UserA {
+  name: string;
+  age: number;
+}
+interface UserB extends UserA {
+  isValid: boolean;
+}
+
+const jsc: UserA = {
+  name: "Seongchang",
+  age: 41,
+  isValid: true, // UserA 타입에는 isValid가 없다.
+};
+
+const neo: UserB = {
+  name: "Neo",
+  age: 100,
+  isValid: true,
+};
+
+
+interface FullName {
+  firstName: string
+  lastName: string
+}
+
+interface FullName { // 같은 이름의 interface 가능
+  middleName: string // 속성 추가 가능
+  lastName: string // 속성 중복시 type을 일치시켜줘야 한다. 여기에서는 string으로 해야함.
+}
+
+const fullName: FullName = {
+  firstName: 'Tomas',
+  middleName: 'Sean',
+  lastName: 'Connery'
+}

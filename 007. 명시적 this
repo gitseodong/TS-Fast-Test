@@ -1,0 +1,21 @@
+// 함수 - 명시적 this
+
+interface Cat {
+  name: string;
+  age: number;
+}
+
+const cat: Cat = {
+  name: "Lucy",
+  age: 3,
+};
+
+function hello(this: Cat, message: string) {
+  // this: Cat을 생략하면, this의 type이 any가 된다. 자주 사용되지는 않음.
+  console.log(`Hello ${this.name}, ${message}`);
+}
+// call메소드는 함수나 메소드가 어떤 대상에서 실행할지를 정할 수 있다.
+// hello라는 함수를 cat이라는 객체데이터의 메소드처럼 호출함.
+// 두 번째 인수는 hello의 인수(message)로 들어감.
+hello.call(cat, "You are pretty awesome!"); // Hello Lucy, You are pretty awesome!
+// hello 함수의 this는 cat이라는 객체데이터가 됨.

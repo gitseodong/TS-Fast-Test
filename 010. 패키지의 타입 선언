@@ -24,3 +24,8 @@ declare module "lodash" {
   const _: Lodash;
   export default _;
 }
+
+// dts파일을 직접 작성할 필요는 없다.
+npm i @types/lodash -D
+설치해주면 오류 자동으로 사라짐.
+단, tsconfig.json 파일에 "compilerOptions" 속성에 "esModuleInterop": true 값이 있어야 함.

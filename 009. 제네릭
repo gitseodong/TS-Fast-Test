@@ -22,3 +22,22 @@ console.log(
   toArray({ x: 1 }, { x: 2 }),
   toArray([1, 2], [3, 4])
 );
+
+// 위의 오버로딩된 함수를 아래와 같이 제네릭으로 변경가능.
+interface Obj {
+  x: number;
+}
+type Arr = [number, number];
+
+function toArray<T>(a: T, b: T) {
+  return [a, b];
+}
+
+console.log(
+  toArray<string>("Neo", "Anderson"),
+  toArray(1, 2), // <> 안에 type을 지정하지 않아도 사용가능
+  toArray(true, false),
+  toArray<Obj>({ x: 1 }, { x: 2 }),
+  toArray([1, 2], [3, 4, 5]), // 둘 다 배열이므로 오류없음.
+  toArray<Arr>([1, 2], [3, 4, 5]) // 위에서 지정한 tuple 타입이 아니므로 오류남.
+);

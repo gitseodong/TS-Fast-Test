@@ -21,7 +21,7 @@ class UserA {
   }
 }
 class UserB extends UserA {
-  getAge() {
+  protected getAge() { // 메소드 앞에 접근제어자 사용 가능
     return `${this.first} ${this.last} is ${this.age}`;
   }
 }

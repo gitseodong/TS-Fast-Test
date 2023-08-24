@@ -41,3 +41,36 @@ console.log(
   toArray([1, 2], [3, 4, 5]), // 둘 다 배열이므로 오류없음.
   toArray<Arr>([1, 2], [3, 4, 5]) // 위에서 지정한 tuple 타입이 아니므로 오류남.
 );
+
+// 클래스
+
+class User<P> {
+  constructor(public payload: P) {}
+  getPayload() {
+    return this.payload;
+  }
+}
+
+interface UserAType {
+  name: string;
+  age: number;
+  isValid: boolean;
+}
+
+interface UserBType {
+  name: string;
+  age: number;
+  emails: string[];
+}
+
+const jsc = new User<UserAType>({
+  name: "jsc",
+  age: 41,
+  isValid: true,
+});
+
+const neo = new User<UserBType>({
+  name: "Neo",
+  emails: ["neo@gamil.com"],
+  age: 50,
+});

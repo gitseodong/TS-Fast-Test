@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "strict": true
-    //"typeRoots": ["./node_modules/@types"] 기본값임
+    //"typeRoots": ["./node_modules/@types"] 기본값임, 적지 않아도 됨.
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_moudles"]

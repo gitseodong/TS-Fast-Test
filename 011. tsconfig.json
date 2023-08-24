@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "strict": true
+    //"typeRoots": ["./node_modules/@types"] 기본값임
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_moudles"]
+}

@@ -14,7 +14,7 @@ console.log(_.kebabCase(str));
 
 // 아래는 main.d.ts
 // lodash의 사용될 모든 메소드를 적어주어야 함.
-
+// declare : 타입선언
 declare module "lodash" {
   interface Lodash {
     camelCase: (str: string) => string;

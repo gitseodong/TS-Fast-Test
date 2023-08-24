@@ -1,0 +1,26 @@
+// ts파일에서 모듈을 불러올 때 모듈의 js파일을 불러옴으로써 오류가 남. 
+// 아래와 같이 d.ts 파일을 코딩함으로써 오류를 없앤다.
+
+// 삼중슬래시 지시자(///), 참조태그: reference
+// 파일명을 main.d.ts가 아닌 lodash.d.ts로 하면 참조태그를 적지 않아도 된다.
+/// <reference path="./main.d.ts" />
+import _ from "lodash";
+
+const str = "the brown fox jumps over the lazy dog.";
+
+console.log(_.camelCase(str));
+console.log(_.snakeCase(str));
+console.log(_.kebabCase(str));
+
+// 아래는 main.d.ts
+// lodash의 사용될 모든 메소드를 적어주어야 함.
+
+declare module "lodash" {
+  interface Lodash {
+    camelCase: (str: string) => string;
+    snakeCase: (str: string) => string;
+    kebabCase: (str: string) => string;
+  }
+  const _: Lodash;
+  export default _;
+}

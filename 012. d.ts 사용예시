@@ -1,0 +1,20 @@
+// main.ts
+import commonjs from "./common";
+
+console.log(commonjs.name); // Seongchang
+
+// common.js
+const jsc = {
+  name: "Seongchang",
+  age: 85,
+};
+
+export default jsc;
+
+// common.d.ts
+interface User {
+  name: string;
+  age: number;
+}
+declare const jsc: User;
+export default jsc;

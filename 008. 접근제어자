@@ -35,3 +35,20 @@ const neo = new UserA("Neo", "Anderson", 102);
 console.log(neo.first);
 console.log(neo.last);
 console.log(neo.age); // 접근불가 - protected 이므로
+
+
+// 매개변수에 접근제어자 붙을 수 있고, 이때는 public 생략 불가능.
+// 매개변수에 접근제어자를 붙이면 매개변수가 곧 멤버변수가 됨.
+class UserA {
+
+  constructor(
+    public first: string = '', 
+    public last: string, 
+    protected age: number) {
+
+  }
+
+  getAge() {
+    return `${this.first} ${this.last} is ${this.age}`;
+  }
+}

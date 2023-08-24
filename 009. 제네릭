@@ -74,3 +74,28 @@ const neo = new User<UserBType>({
   emails: ["neo@gamil.com"],
   age: 50,
 });
+
+
+// 인터페이스, 제약 조건(Constraints)
+
+interface MyData<T extends string | number[]> { // T는 string이거나 number이어야함.(제약조건), 제약조건이 없어도 됨.
+  name: string;
+  value: T;
+}
+
+const dataA: MyData<string> = {
+  name: "Data A",
+  value: "Hello world",
+};
+const dataB: MyData<number> = {
+  name: "Data B",
+  value: 1234,
+};
+const dataC: MyData<boolean> = {
+  name: "Data C",
+  value: true,
+};
+const dataD: MyData<number[]> = {
+  name: "Data D",
+  value: [1, 2, 3, 4],
+};
